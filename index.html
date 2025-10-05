@@ -16,7 +16,6 @@
       min-height: 100vh;
     }
 
-    /* خلفية نجوم متحركة */
     .stars {
       position: fixed;
       top: 0; left: 0;
@@ -194,7 +193,7 @@
 
   <header>
     <img src="./logo.png" alt="Devs Logo" class="logo">
-    
+   
   </header>
 
   <section class="intro">
@@ -213,6 +212,7 @@
       <input type="text" name="Full Name" placeholder="Full Name" required>
       <input type="email" name="Email" placeholder="Email" required>
       <input type="tel" name="Phone" placeholder="Phone Number" required>
+      <input type="text" name="National ID" placeholder="National ID" required>
       <input type="date" name="DOB" required>
       <select name="Education" required>
         <option value="" disabled selected>Education Level</option>
@@ -221,6 +221,7 @@
         <option>Graduate</option>
       </select>
       <input type="text" name="College" placeholder="College Name">
+      <input type="text" name="Track" placeholder="Track (e.g., Web, AI, Flutter)">
       <select name="Governorate" required>
         <option value="" disabled selected>Governorate</option>
         <option>Cairo</option><option>Giza</option><option>Alexandria</option><option>Port Said</option>
@@ -253,7 +254,7 @@
       form.scrollIntoView({ behavior: "smooth" });
     }
 
-    const scriptURL = "https://script.google.com/macros/s/AKfycbyKt9adrZfFeZMiK_974R-iMNpK2_8lrhM031LGyLbyKFGOrNHjk09QwgWI93J2jqiF/exec";
+    const scriptURL = "https://script.google.com/macros/s/AKfycbz8rniF9HlC6EECRZf8xdwSoJC0YrspptJwso0MwYraC2-p8M9Q8Vwx2NbXVHfZpFo/exec";
     const form = document.getElementById("applyForm");
     const spinner = document.querySelector(".spinner");
     const btnText = document.querySelector(".btn-text");
