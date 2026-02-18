@@ -1,285 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Devs Community | Join Us</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
-  <script src="https://kit.fontawesome.com/a2d04d6a4b.js" crossorigin="anonymous"></script>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-
-    body {
-      background: radial-gradient(circle at 20% 20%, #2b1d64, #0f0a29);
-      color: white;
-      overflow-x: hidden;
-      min-height: 100vh;
-    }
-
-    .stars {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: url('https://www.transparenttextures.com/patterns/stardust.png');
-      animation: moveStars 60s linear infinite;
-      z-index: 0;
-      opacity: 0.2;
-    }
-
-    @keyframes moveStars {
-      from { background-position: 0 0; }
-      to { background-position: 10000px 5000px; }
-    }
-
-    header {
-      text-align: center;
-      padding: 30px 20px;
-      background: rgba(255, 255, 255, 0.05);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      position: relative;
-      z-index: 2;
-    }
-
-    header .logo {
-      width: 90px;
-      height: 90px;
-      object-fit: contain;
-      border-radius: 50%;
-      margin-bottom: 10px;
-      transition: transform 0.3s ease, filter 0.3s ease;
-    }
-
-    header .logo:hover {
-      transform: scale(1.1);
-      filter: drop-shadow(0 0 10px #7a4bff);
-    }
-
-    header h1 {
-      font-size: 2rem;
-      letter-spacing: 1px;
-      color: #d6c9ff;
-    }
-
-    .intro {
-      text-align: center;
-      padding: 80px 20px 40px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .intro h2 {
-      font-size: 2.5rem;
-      color: #a88eff;
-      margin-bottom: 15px;
-      animation: fadeInDown 1.2s ease;
-    }
-
-    .intro p {
-      max-width: 700px;
-      margin: 0 auto;
-      color: #dcd7ff;
-      font-size: 1.1rem;
-      opacity: 0.9;
-      animation: fadeIn 2s ease;
-    }
-
-    .apply-btn {
-      margin-top: 35px;
-      background: linear-gradient(90deg, #7a4bff, #9d6dff);
-      color: white;
-      padding: 14px 40px;
-      border: none;
-      border-radius: 30px;
-      font-size: 1.1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: 0.3s;
-      animation: pulse 2s infinite;
-    }
-
-    .apply-btn:hover {
-      transform: scale(1.07);
-      background: linear-gradient(90deg, #9d6dff, #7a4bff);
-    }
-
-    .form-section {
-      display: none;
-      max-width: 600px;
-      margin: 60px auto;
-      background: rgba(255, 255, 255, 0.1);
-      padding: 40px;
-      border-radius: 20px;
-      box-shadow: 0 0 20px rgba(122, 75, 255, 0.3);
-      position: relative;
-      z-index: 2;
-      animation: fadeInUp 1s ease;
-    }
-
-    .form-section h3 {
-      text-align: center;
-      color: #cbbfff;
-      margin-bottom: 20px;
-    }
-
-    input, select, textarea {
-      width: 100%;
-      margin-bottom: 15px;
-      padding: 12px;
-      border: none;
-      border-radius: 10px;
-      font-size: 1rem;
-      background: rgba(255, 255, 255, 0.15);
-      color: white;
-      transition: 0.3s;
-    }
-
-    input::placeholder, textarea::placeholder {
-      color: #ccc;
-    }
-
-    select option {
-      background: #2b1d64;
-      color: white;
-    }
-
-    input:focus, select:focus, textarea:focus {
-      outline: none;
-      box-shadow: 0 0 10px #7a4bff;
-      background: rgba(255, 255, 255, 0.25);
-    }
-
-    .submit-btn {
-      width: 100%;
-      padding: 12px;
-      border: none;
-      border-radius: 25px;
-      background: linear-gradient(90deg, #7a4bff, #9d6dff);
-      color: white;
-      font-weight: 600;
-      font-size: 1rem;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      transition: 0.3s;
-    }
-
-    .submit-btn:hover {
-      transform: scale(1.03);
-    }
-
-    .spinner {
-      display: none;
-      width: 20px;
-      height: 20px;
-      border: 3px solid white;
-      border-top-color: transparent;
-      border-radius: 50%;
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      animation: spin 1s linear infinite;
-    }
-
-    @keyframes fadeInUp { from {opacity: 0; transform: translateY(30px);} to {opacity: 1; transform: translateY(0);} }
-    @keyframes fadeInDown { from {opacity: 0; transform: translateY(-20px);} to {opacity: 1; transform: translateY(0);} }
-    @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
-    @keyframes pulse { 0%, 100% {box-shadow: 0 0 10px #7a4bff;} 50% {box-shadow: 0 0 20px #a88eff;} }
-    @keyframes spin { to { transform: translate(-50%, -50%) rotate(360deg);} }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Apply | Devs Community</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #0e0c27;
+  color: white;
+  padding: 20px;
+}
+.container {
+  max-width: 600px;
+  margin: auto;
+  background: rgba(255,255,255,0.07);
+  padding: 25px;
+  border-radius: 12px;
+}
+h2 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.15);
+  color: white;
+}
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  box-shadow: 0 0 8px #7a4bff;
+}
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 20px;
+  background: #7a4bff;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+}
+button:hover {
+  background: #9d6dff;
+}
+</style>
 </head>
-
 <body>
-  <div class="stars"></div>
 
-  <header>
-    <img src="./logo.png" alt="Devs Logo" class="logo">
-   
-  </header>
+<div class="container">
+  <h2>Apply to Devs Community 🚀</h2>
+  <form id="applyForm" enctype="multipart/form-data">
 
-  <section class="intro">
-    <h2>Together Making Career 🚀🤩</h2>
-    <p>
-      At <b>Devs Community</b>, we empower youth and individuals of all ages who are passionate about technology.  
-      Through our engaging <b>workshops, courses, and competitions</b>, we spark creativity, collaboration, and innovation.  
-      Join a community where learning never stops — and where future leaders are built!
-    </p>
-    <button class="apply-btn" onclick="showForm()">Apply Now</button>
-  </section>
+    <input type="text" name="Full Name" placeholder="Full Name" required>
+    <input type="email" name="Email" placeholder="Email" required>
+    <input type="tel" name="Phone" placeholder="Phone (e.g. 01012345678)" required>
+    <input type="text" name="National ID" placeholder="National ID (14 digits)" required>
+    <input type="date" name="DOB" required>
 
-  <section class="form-section" id="formSection">
-    <h3>Join the Team</h3>
-    <form id="applyForm">
-      <input type="text" name="Full Name" placeholder="Full Name" required>
-      <input type="email" name="Email" placeholder="Email" required>
-      <input type="tel" name="Phone" placeholder="Phone Number" required>
-      <input type="text" name="National ID" placeholder="National ID" required>
-      <input type="date" name="DOB" required>
-      <select name="Education" required>
-        <option value="" disabled selected>Education Level</option>
-        <option>Secondary</option>
-        <option>University</option>
-        <option>Graduate</option>
-      </select>
-      <input type="text" name="College" placeholder="College Name">
-      <input type="text" name="Track" placeholder="Track (e.g., Web, AI, Flutter)">
-      <select name="Governorate" required>
-        <option value="" disabled selected>Governorate</option>
-        <option>Cairo</option><option>Giza</option><option>Alexandria</option><option>Port Said</option>
-        <option>Ismailia</option><option>Sharkia</option><option>Dakahlia</option><option>Aswan</option>
-        <option>Asyut</option><option>Beheira</option><option>Beni Suef</option><option>Fayoum</option>
-        <option>Gharbia</option><option>Kafr El Sheikh</option><option>Luxor</option><option>Matrouh</option>
-        <option>Minya</option><option>Monufia</option><option>New Valley</option><option>North Sinai</option>
-        <option>Qalyubia</option><option>Qena</option><option>Red Sea</option><option>Sohag</option>
-        <option>South Sinai</option><option>Suez</option>
-      </select>
-      <select name="Department" required>
-        <option value="" disabled selected>Preferred Department</option>
-        <option>HR</option>
-        <option>PR</option>
-        <option>Media</option>
-        <option>Logistics / Organizer</option>
-      </select>
-      <textarea name="Message" rows="4" placeholder="Why do you want to join?" required></textarea>
-      <button type="submit" class="submit-btn">
-        <span class="btn-text">Submit</span>
-        <div class="spinner"></div>
-      </button>
-    </form>
-  </section>
+    <select name="Education" required>
+      <option value="">Education Level</option>
+      <option>Secondary</option>
+      <option>University</option>
+      <option>Graduate</option>
+    </select>
 
-  <script>
-    function showForm() {
-      const form = document.getElementById("formSection");
-      form.style.display = "block";
-      form.scrollIntoView({ behavior: "smooth" });
-    }
+    <input type="text" name="College" placeholder="College Name">
+    <input type="text" name="Track" placeholder="Track (e.g. Web, AI, Flutter)">
 
-    const scriptURL = "https://script.google.com/macros/s/AKfycbz8rniF9HlC6EECRZf8xdwSoJC0YrspptJwso0MwYraC2-p8M9Q8Vwx2NbXVHfZpFo/exec";
-    const form = document.getElementById("applyForm");
-    const spinner = document.querySelector(".spinner");
-    const btnText = document.querySelector(".btn-text");
+    <select name="Governorate" required>
+      <option value="">Governorate</option>
+      <option>Cairo</option><option>Giza</option><option>Alexandria</option>
+      <option>Ismailia</option><option>Suez</option><option>Aswan</option>
+    </select>
 
-    form.addEventListener("submit", e => {
-      e.preventDefault();
-      spinner.style.display = "block";
-      btnText.textContent = "Sending...";
-      form.querySelector(".submit-btn").disabled = true;
+    <select name="Department" id="department" required>
+      <option value="">Preferred Department</option>
+      <option>HR</option>
+      <option>IT</option>
+      <option>PR</option>
+      <option>Media</option>
+      <option>Logistics</option>
+    </select>
 
-      fetch(scriptURL, { method: "POST", body: new FormData(form) })
-        .then(() => {
-          spinner.style.display = "none";
-          btnText.textContent = "Submit";
-          form.querySelector(".submit-btn").disabled = false;
-          alert("✅ Your application has been sent successfully!");
-          form.reset();
-        })
-        .catch(() => {
-          spinner.style.display = "none";
-          btnText.textContent = "Submit";
-          form.querySelector(".submit-btn").disabled = false;
-          alert("❌ There was an error, please try again.");
-        });
+    <select name="Specialization" id="specialization" style="display:none;" required>
+      <option value="">Specialization</option>
+    </select>
+
+    <input type="file" name="CV" accept=".pdf,.doc,.docx" required>
+
+    <textarea name="Message" rows="3" placeholder="Why you want to join?" required></textarea>
+
+    <button type="submit">Submit Application</button>
+  </form>
+</div>
+
+<script>
+const scriptURL = "https://script.google.com/macros/s/AKfycbwc7pBtEdbP_2FEvO-XGw-mzq-KCAswpMgOtHjMp-GCSLZ_8pHY16pKopKJCR2X326U/exec"; // ↩️ ضع هنا رابط السكربت
+const form = document.getElementById("applyForm");
+const dep = document.getElementById("department");
+const spec = document.getElementById("specialization");
+
+// ✨ ديناميكية التخصص بناءً على القسم
+dep.addEventListener("change", ()=>{
+  spec.style.display = "none";
+  spec.innerHTML = '<option value="">Specialization</option>';
+
+  if(dep.value === "IT"){
+    spec.style.display = "block";
+    spec.innerHTML += `
+      <option>.NET</option>
+      <option>Node.js</option>
+      <option>Frontend</option>
+      <option>Network</option>
+      <option>Cyber Security</option>
+      <option>Artificial Intelligence</option>
+    `;
+  }
+  if(dep.value === "Media"){
+    spec.style.display = "block";
+    spec.innerHTML += `
+      <option>Graphic Designer</option>
+      <option>Content Creator</option>
+      <option>Video Editing</option>
+    `;
+  }
+});
+
+form.addEventListener("submit", async (e)=>{
+  e.preventDefault();
+
+  const formData = new FormData(form);
+
+  try{
+    const res = await fetch(scriptURL, {
+      method: "POST",
+      body: formData
     });
-  </script>
+    const result = await res.json();
+
+    if(result.status === "success"){
+      alert("✅ Sent successfully!");
+      form.reset();
+      spec.style.display = "none";
+    } else {
+      alert("⚠️ " + result.message);
+    }
+  } catch(err){
+    alert("‼️ Network error");
+  }
+});
+</script>
+
 </body>
 </html>
