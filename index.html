@@ -5,57 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Apply | Devs Community</title>
 <style>
-body {
-  font-family: Arial, sans-serif;
-  background: #0e0c27;
-  color: white;
-  padding: 20px;
-}
-.container {
-  max-width: 600px;
-  margin: auto;
-  background: rgba(255,255,255,0.07);
-  padding: 25px;
-  border-radius: 12px;
-}
-h2 {
-  text-align: center;
-  margin-bottom: 15px;
-}
-input, select, textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 12px;
-  border: none;
-  border-radius: 8px;
-  background: rgba(255,255,255,0.15);
-  color: white;
-}
-input:focus, select:focus, textarea:focus {
-  outline: none;
-  box-shadow: 0 0 8px #7a4bff;
-}
-button {
-  width: 100%;
-  padding: 12px;
-  border: none;
-  border-radius: 20px;
-  background: #7a4bff;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  color: white;
-}
-button:hover {
-  background: #9d6dff;
-}
+body { font-family: Arial, sans-serif; background: #0e0c27; color: white; padding: 20px; }
+.container { max-width: 600px; margin: auto; background: rgba(255,255,255,0.07); padding: 25px; border-radius: 12px; }
+h2 { text-align: center; margin-bottom: 15px; }
+input, select, textarea { width: 100%; padding: 10px; margin-bottom: 12px; border: none; border-radius: 8px; background: rgba(255,255,255,0.15); color: white; }
+input:focus, select:focus, textarea:focus { outline: none; box-shadow: 0 0 8px #7a4bff; }
+button { width: 100%; padding: 12px; border: none; border-radius: 20px; background: #7a4bff; font-size: 1rem; font-weight: bold; cursor: pointer; color: white; }
+button:hover { background: #9d6dff; }
 </style>
 </head>
 <body>
 
 <div class="container">
   <h2>Apply to Devs Community 🚀</h2>
-  <form id="applyForm" enctype="multipart/form-data">
+  <form id="applyForm">
 
     <input type="text" name="Full Name" placeholder="Full Name" required>
     <input type="email" name="Email" placeholder="Email" required>
@@ -101,16 +64,14 @@ button:hover {
 </div>
 
 <script>
-const scriptURL = "https://script.google.com/macros/s/AKfycbwc7pBtEdbP_2FEvO-XGw-mzq-KCAswpMgOtHjMp-GCSLZ_8pHY16pKopKJCR2X326U/exec"; // ↩️ ضع هنا رابط السكربت
 const form = document.getElementById("applyForm");
 const dep = document.getElementById("department");
 const spec = document.getElementById("specialization");
 
-// ✨ ديناميكية التخصص بناءً على القسم
+// Dynamic specialization
 dep.addEventListener("change", ()=>{
   spec.style.display = "none";
   spec.innerHTML = '<option value="">Specialization</option>';
-
   if(dep.value === "IT"){
     spec.style.display = "block";
     spec.innerHTML += `
@@ -132,18 +93,17 @@ dep.addEventListener("change", ()=>{
   }
 });
 
+// Submit with fetch + FormData
 form.addEventListener("submit", async (e)=>{
   e.preventDefault();
-
   const formData = new FormData(form);
 
   try{
-    const res = await fetch(scriptURL, {
+    const res = await fetch("https://script.google.com/macros/s/AKfycbxIVhN0JLzPmPosTg56bljgCwGwr4iHl6PFrWJRDIbEO_7Jm9Ph62Hhf5mUvj3eeSU/exec", {
       method: "POST",
       body: formData
     });
     const result = await res.json();
-
     if(result.status === "success"){
       alert("✅ Sent successfully!");
       form.reset();
