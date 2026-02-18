@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Apply | Devs Community</title>
 <style>
 body { font-family: Arial, sans-serif; background: #0e0c27; color: white; padding: 20px; }
@@ -51,11 +51,11 @@ button:hover { background: #9d6dff; }
       <option>Logistics</option>
     </select>
 
-    <select name="Specialization" id="specialization" style="display:none;" required>
+    <select name="Specialization" id="specialization" style="display:none;">
       <option value="">Specialization</option>
     </select>
 
-    <input type="file" name="CV" accept=".pdf,.doc,.docx" required>
+    <input type="file" name="CV" id="cvFile" accept=".pdf,.doc,.docx" required>
 
     <textarea name="Message" rows="3" placeholder="Why you want to join?" required></textarea>
 
@@ -68,12 +68,15 @@ const form = document.getElementById("applyForm");
 const dep = document.getElementById("department");
 const spec = document.getElementById("specialization");
 
-// Dynamic specialization
-dep.addEventListener("change", ()=>{
+// Dynamic specialization & required
+dep.addEventListener("change", () => {
   spec.style.display = "none";
+  spec.required = false;
   spec.innerHTML = '<option value="">Specialization</option>';
+
   if(dep.value === "IT"){
     spec.style.display = "block";
+    spec.required = true;
     spec.innerHTML += `
       <option>.NET</option>
       <option>Node.js</option>
@@ -85,6 +88,7 @@ dep.addEventListener("change", ()=>{
   }
   if(dep.value === "Media"){
     spec.style.display = "block";
+    spec.required = true;
     spec.innerHTML += `
       <option>Graphic Designer</option>
       <option>Content Creator</option>
@@ -93,27 +97,14 @@ dep.addEventListener("change", ()=>{
   }
 });
 
-// Submit with fetch + FormData
-form.addEventListener("submit", async (e)=>{
+// Submit using google.script.run
+form.addEventListener("submit", (e) => {
   e.preventDefault();
-  const formData = new FormData(form);
+  const cvFile = document.getElementById("cvFile").files[0];
+  const formData = Object.fromEntries(new FormData(form).entries());
 
-  try{
-    const res = await fetch("https://script.google.com/macros/s/AKfycbxIVhN0JLzPmPosTg56bljgCwGwr4iHl6PFrWJRDIbEO_7Jm9Ph62Hhf5mUvj3eeSU/exec", {
-      method: "POST",
-      body: formData
-    });
-    const result = await res.json();
-    if(result.status === "success"){
-      alert("✅ Sent successfully!");
-      form.reset();
-      spec.style.display = "none";
-    } else {
-      alert("⚠️ " + result.message);
-    }
-  } catch(err){
-    alert("‼️ Network error");
-  }
+  google.script.run.withSuccessHandler(msg => alert(msg))
+                   .uploadApplication(formData, cvFile);
 });
 </script>
 
